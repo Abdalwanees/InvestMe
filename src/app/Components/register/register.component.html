@@ -1,1 +1,60 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-header text-center">
+            <h2>Register</h2>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div class="form-group mb-3">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" formControlName="name" placeholder="Enter your name">
+                <div *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.invalid" class="text-danger">
+                  Name is required
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter your email">
+                <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid" class="text-danger">
+                  <div *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</div>
+                  <div *ngIf="registerForm.get('email')?.errors?.['email']">Email is invalid</div>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" formControlName="password" placeholder="Enter your password">
+                <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid" class="text-danger">
+                  Password is required
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" placeholder="Confirm your password">
+                <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.invalid" class="text-danger">
+                  Confirm Password is required
+                </div>
+                <div *ngIf="registerForm.errors?.['mustMatch']" class="text-danger">
+                  Passwords must match
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label for="role">Role</label>
+                <select id="role" class="form-control" formControlName="role">
+                  <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                </select>
+                <div *ngIf="registerForm.get('role')?.touched && registerForm.get('role')?.invalid" class="text-danger">
+                  Role is required
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
