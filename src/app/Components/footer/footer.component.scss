@@ -29,6 +29,28 @@
       }
     }
   
+    .social-icons {
+      a {
+        color: #fff;
+        margin-right: 1rem;
+        font-size: 1.5rem;
+  
+        &:hover {
+          color: #007bff;
+        }
+      }
+    }
+  
+    .input-group {
+      .form-control {
+        border-radius: 0;
+      }
+  
+      .btn {
+        border-radius: 0;
+      }
+    }
+  
     .row.mt-4 {
       border-top: 1px solid #4f5d75;
       padding-top: 1rem;
