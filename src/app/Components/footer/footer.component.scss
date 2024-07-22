@@ -1,0 +1,37 @@
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 2rem 0;
+  
+    h5 {
+      margin-bottom: 1rem;
+    }
+  
+    p {
+      margin-bottom: 0.5rem;
+    }
+  
+    ul {
+      padding-left: 0;
+      list-style: none;
+  
+      li {
+        margin-bottom: 0.5rem;
+  
+        a {
+          color: #fff;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  
+    .row.mt-4 {
+      border-top: 1px solid #4f5d75;
+      padding-top: 1rem;
+    }
+  }
+  
