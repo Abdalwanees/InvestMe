@@ -1,0 +1,13 @@
+/* nav-bar-auth.component.scss */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Adjust the value as needed to ensure the navbar is above other elements */
+  }
+  
+  /* To ensure the content is not covered by the fixed navbar, add some top padding to the page content */
+  .container-fluid {
+    padding-top: 70px; /* Adjust the value based on the height of the navbar */
+  }
+  

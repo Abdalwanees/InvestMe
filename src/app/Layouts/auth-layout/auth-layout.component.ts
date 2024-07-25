@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarBlankComponent } from "../../Components/nav-bar-blank/nav-bar-blank.component";
 import { FooterComponent } from "../../Components/footer/footer.component";
@@ -14,6 +14,10 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './auth-layout.component.html',
   styleUrls: ['./auth-layout.component.scss']
 })
-export class AuthLayoutComponent {
+export class AuthLayoutComponent implements OnInit {
+  ngOnInit(): void {
+    // Scroll to top on page reload
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
 }
