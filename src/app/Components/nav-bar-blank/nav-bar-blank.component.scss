@@ -1,0 +1,52 @@
+.navbar {
+    background-color: #f8f9fa !important;
+    padding: 1rem 2rem;
+  
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: #007bff;
+  
+      img.animated-logo {
+        width: 50px;
+        margin-right: 10px;
+        animation: rotate 5s infinite linear;
+      }
+    }
+  
+    .nav-link {
+      margin-right: 1rem;
+      font-weight: 500;
+      color: #555;
+  
+      &:hover {
+        color: #007bff;
+      }
+  
+      &.active {
+        color: #007bff;
+        font-weight: bold;
+      }
+    }
+  
+    .navbar-toggler {
+      border: none;
+    }
+  
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  
+    .navbar-nav {
+      .nav-item {
+        margin-left: 15px;
+      }
+    }
+  }
+  

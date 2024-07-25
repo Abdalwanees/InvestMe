@@ -1,0 +1,32 @@
+.profile-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem 1rem;
+  }
+  
+  .profile-header {
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid #007bff;
+    }
+  
+    .bio {
+      font-size: 1rem;
+      color: #666;
+    }
+  }
+  
+  .profile-content {
+    margin-top: 2rem;
+  
+    .nav-tabs {
+      justify-content: center;
+    }
+  
+    .tab-content {
+      margin-top: 2rem;
+    }
+  }
+  

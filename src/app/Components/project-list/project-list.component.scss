@@ -1,0 +1,36 @@
+.container-fluid {
+    .header {
+      padding: 60px 0;
+      background: #f8f9fa;
+      .display-4 {
+        font-weight: bold;
+      }
+      .lead {
+        font-size: 1.25rem;
+      }
+    }
+  
+    .card {
+      .card-body {
+        i {
+          color: #007bff;
+        }
+        .btn-primary {
+          background-color: #007bff;
+          border-color: #007bff;
+          &:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+          }
+        }
+      }
+    }
+  
+    .recent-projects {
+      margin-top: 40px;
+      h2 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  
