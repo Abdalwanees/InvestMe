@@ -25,6 +25,8 @@ export class RegisterComponent implements OnInit {
     }, {
       validators: this.mustMatch('password', 'confirmPassword')
     });
+    // Scroll to top on page reload
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   mustMatch(controlName: string, matchingControlName: string) {
