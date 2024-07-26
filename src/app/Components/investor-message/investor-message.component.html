@@ -1,1 +1,26 @@
-<p>investor-message works!</p>
+<div class="container">
+    <div class="messages">
+      <div *ngFor="let message of messages" class="message">
+        <div class="message-header">
+          <strong>{{ message.sender }}</strong>
+          <small class="text-muted">{{ message.timestamp | date:'short' }}</small>
+        </div>
+        <div class="message-body">
+          <p>{{ message.content }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+      <div class="form-group">
+        <label for="sender">Sender</label>
+        <input id="sender" formControlName="sender" class="form-control" placeholder="Your Name">
+      </div>
+      <div class="form-group">
+        <label for="content">Message</label>
+        <textarea id="content" formControlName="content" class="form-control" rows="3" placeholder="Type your message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+  

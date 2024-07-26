@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -11,62 +11,47 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./user-profile.component.scss']
 })
 
-export class UserProfileComponent {
-  roles: string[] = ['Investor', 'Innovator'];
+export class UserProfileComponent implements OnInit {
+  userSettingsForm: FormGroup;
   user = {
     name: 'John Doe',
-    email: 'john.doe@example.com',
-    role: 'Investor', // or 'Innovator'
-    avatar: 'assets/avatar.png',
-    bio: 'A short bio about the user.',
+    role: 'Investor',
+    bio: 'Innovative investor with a passion for startups.',
     activities: [
-      { description: 'Invested in XYZ startup', date: new Date() },
-      { description: 'Joined the platform', date: new Date('2023-06-15') }
-    ],
-    settings: {
-      theme: 'light',
-      notifications: true,
-    }
+      { description: 'Invested in XYZ project', date: new Date() }
+    ]
   };
-
-  userSettingsForm: FormGroup;
+  roles = ['Investor', 'Innovator', 'Admin'];
+  avatarPreview: string | ArrayBuffer | null = null;
 
   constructor(private fb: FormBuilder) {
     this.userSettingsForm = this.fb.group({
       name: [this.user.name],
-      email: [this.user.email],
+      email: ['john.doe@example.com'],
       role: [this.user.role],
-      avatar: [this.user.avatar],
+      avatar: [''],
       bio: [this.user.bio],
-      theme: [this.user.settings.theme],
-      notifications: [this.user.settings.notifications],
-      storage: [false] // default value, adjust as needed
+      theme: ['light'],
+      notifications: [true],
+      storage: [false]
     });
   }
 
   ngOnInit(): void {}
 
-  onSubmit(): void {
-    const settings = this.userSettingsForm.value;
-    console.log('User Settings:', settings);
-    
-    // تحديث معلومات المستخدم
-    this.user.name = settings.name;
-    this.user.email = settings.email;
-    this.user.role = settings.role;
-    this.user.avatar = settings.avatar;
-    this.user.bio = settings.bio;
-    this.user.settings.theme = settings.theme;
-    this.user.settings.notifications = settings.notifications;
-
-    // هنا يمكنك إضافة الكود اللازم لحفظ الإعدادات في خادمك أو محلياً
-    if (settings.storage) {
-      this.requestStoragePermission();
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.avatarPreview = e.target.result;
+        this.userSettingsForm.patchValue({ avatar: file });
+      };
+      reader.readAsDataURL(file);
     }
   }
 
-  requestStoragePermission(): void {
-    // هنا يمكنك إضافة الكود اللازم لطلب إذن التخزين من المستخدم
-    console.log('Requesting storage permission...');
+  onSubmit(): void {
+    console.log(this.userSettingsForm.value);
   }
 }
