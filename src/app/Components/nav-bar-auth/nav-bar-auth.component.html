@@ -1,22 +1,46 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="assets/images/logo.png" class="animated-logo border border-1 rounded-circle border-black" alt="Logo">
-        InvestMe
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/auth/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/auth/register">Register</a>
-            </li>
-          </ul>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" id="brand-name" (click)="navigateToDashboard()">
+      InvestMe
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fs-6 fw-semibold" href="#"><i class="fa fa-brands fa-instagram"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-6 fw-semibold" href="#"><i class="fa fa-brands fa-facebook"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-6 fw-semibold" href="#"><i class="fa fa-brands fa-tiktok"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-6 fw-semibold" href="#"><i class="fa fa-brands fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-6 fw-semibold" href="#"><i class="fa fa-brands fa-linkedin-in"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-6 fw-semibold" href="#"><i class="fa fa-brands fa-youtube"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-6 fw-semibold text-capitalize" routerLink="login" routerLinkActive="active-link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-6 fw-semibold text-capitalize" routerLink="register" routerLinkActive="active-link">Register</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-  
+  </div>
+</nav>

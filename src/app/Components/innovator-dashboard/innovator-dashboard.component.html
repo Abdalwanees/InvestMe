@@ -1,0 +1,51 @@
+<div class="welcome-container text-center">
+  <div class="welcome-content">
+    <img src="./assets/images/WelcomeScreen.svg" alt="Welcome Image" class="welcome-image">
+    <h1>{{ greeting }}, {{ userName }}!</h1>
+    <p class="lead">
+      Welcome to <strong>InvestMe</strong> – your ultimate platform to connect with investors and showcase your innovative ideas.
+    </p>
+    <p>
+      Whether you're an innovator ready to bring your ideas to life or an investor searching for the next big opportunity, 
+      our platform simplifies your journey to success.
+    </p>
+    <p>
+      Join our vibrant community, share your projects, attract investments, and collaborate with visionaries to turn dreams into reality.
+    </p>
+    <button class="btn btn-primary mt-4" (click)="navigateToCreateProject()">
+      Start Your Project
+    </button>
+  </div>
+</div>
+
+
+<!-- -------------------------------- -->
+
+  <!-- Add New Project Section -->
+  <!-- <div class="section">
+    <h2>Add New Project</h2>
+    <form [formGroup]="newProjectForm" (ngSubmit)="addNewProject()">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Project Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Project Details</mat-label>
+        <textarea matInput formControlName="details"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Required Investment</mat-label>
+        <input matInput type="number" formControlName="requiredInvestment">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Video URL</mat-label>
+        <input matInput formControlName="videoUrl">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="newProjectForm.invalid">Add Project</button>
+    </form>
+  </div>
+</div> -->

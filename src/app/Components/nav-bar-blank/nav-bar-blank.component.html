@@ -1,23 +1,56 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" [routerLink]="['/main/home']">
-      <img src="./assets/images/logo.png" class="animated-logo" alt="Logo">
-      InvestMe
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" [class.scrolled]="isScrolled">
+  <div class="container-fluid">
+    <a class="navbar-brand" id="brand-name" (click)="navigateToDashboard()">InvestMe</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/blank/projects']" routerLinkActive="active">Projects</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Innovator Links -->
+        <li class="nav-item" *ngIf="userType === 'Innovator'">
+          <a class="nav-link" routerLink="/blank/explore">Explore</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/blank/profile']" routerLinkActive="active">Profile</a>
+        <li class="nav-item" *ngIf="userType === 'Innovator'">
+          <a class="nav-link" routerLink="/blank/projects">Projects</a>
         </li>
+        <li class="nav-item" *ngIf="userType === 'Innovator'">
+          <a class="nav-link" routerLink="/blank/NewProject">Add Project</a>
+        </li>
+        <li class="nav-item" *ngIf="userType === 'Innovator'">
+          <a class="nav-link" routerLink="/completed-projects">Completed Projects</a>
+        </li>
+
+        <!-- Investor Links -->
+        <li class="nav-item" *ngIf="userType === 'Investor'">
+          <a class="nav-link" routerLink="/blank/explore">Explore</a>
+        </li>
+        <li class="nav-item" *ngIf="userType === 'Investor'">
+          <a class="nav-link" routerLink="/your-invest-projects">Your Investments</a>
+        </li>
+      </ul>
+
+      <!-- Notifications and Message Icons -->
+      <ul class="navbar-nav ms-auto d-flex align-items-center">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/blank/messages']" routerLinkActive="active">Messages</a>
+          <a class="nav-link position-relative" routerLink="/notifications">
+            <i class="fas fa-bell"></i>
+            <span class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle">3</span>
+          </a>
+        </li>
+        <li class="nav-item ms-3">
+          <a class="nav-link position-relative" routerLink="/blank/chat">
+            <i class="fas fa-envelope"></i>
+            <span class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle">5</span>
+          </a>
+        </li>
+        <li class="nav-item ms-3">
+          <button class="btn btn-outline-primary" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
         </li>
       </ul>
     </div>
-  </nav>
-  
+  </div>
+</nav>

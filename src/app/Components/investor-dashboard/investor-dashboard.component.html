@@ -1,0 +1,51 @@
+<div class="dashboard-container">
+  <div class="welcome-container">
+    <h1>{{ greeting }}, {{ userName }}!</h1>
+    <p class="lead">
+      Welcome to <strong>InvestMe</strong> – your ultimate platform to discover and support groundbreaking projects.
+    </p>
+  </div>
+
+  <!-- Dynamic Statistics Dashboard with Charts -->
+  <section class="statistics-dashboard">
+    <div class="stat-card">
+      <div class="chart-container">
+        <canvas id="investmentChart"></canvas>
+      </div>
+      <h2>Total Investments</h2>
+      <p>{{ totalInvestments | number }} USD</p>
+    </div>
+    <div class="stat-card">
+      <div class="chart-container">
+        <canvas id="returnsChart"></canvas>
+      </div>
+      <h2>Expected Returns</h2>
+      <p>{{ expectedReturns | number }} USD</p>
+    </div>
+    <div class="stat-card">
+      <div class="chart-container">
+        <canvas id="projectsChart"></canvas>
+      </div>
+      <h2>Projects Supported</h2>
+      <p>{{ projectsSupported }}</p>
+    </div>
+  </section>
+
+  <!-- Activity Timeline -->
+  <section class="activity-timeline">
+    <h3>Recent Activities</h3>
+    <ul *ngFor="let activity of activities">
+      <li>
+        <span class="date">{{activity.date | date: 'MMM d, y, h:mm a'}}</span>
+        <p>Invested in <strong>{{ activity.projectName }}</strong>: ${{ activity.amount | number }}</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Explore Projects Button -->
+  <div class="explore-container text-center">
+    <button class="explore-btn" (click)="navigateToExploreProjects()">
+      Explore Projects
+    </button>
+  </div>
+</div>

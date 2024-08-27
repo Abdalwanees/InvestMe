@@ -1,0 +1,90 @@
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa, #80deea); /* لون خلفية متدرج */
+  padding: 20px;
+  margin-bottom: 0;
+
+  .welcome-content {
+    background-color: #ffffff;
+    border-radius: 20px; /* حواف أكثر انحناءً */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* ظل خفيف مع زيادة الوضوح */
+    padding: 50px 30px;
+    max-width: 750px; /* عرض أقصى للحاوية */
+    text-align: center;
+    animation: fadeInUp 0.8s ease-in-out; /* تأثير دخول متدرج من الأسفل */
+
+    .welcome-image {
+      width: 100%;
+      max-width: 350px; /* عرض أكبر للصورة */
+      margin-bottom: 25px;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      
+      &:hover {
+        transform: scale(1.08);
+        filter: brightness(1.1); /* تأثير تفتيح عند التحويم */
+      }
+    }
+
+    h1 {
+      font-size: 2.8rem; /* تكبير حجم العنوان */
+      color: #00796b; /* لون أغمق لتباين أفضل */
+      margin-bottom: 25px;
+      text-shadow: 0 0 15px rgba(0, 121, 107, 0.3); /* زيادة تأثير الظل */
+      animation: textPop 0.6s ease; /* تأثير بسيط على النص */
+    }
+
+    .lead {
+      font-size: 1.4rem; /* تكبير حجم النص */
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 25px;
+      line-height: 1.7;
+      opacity: 0.9; /* تخفيف النص لجعل القراءة مريحة */
+    }
+
+    .btn-primary {
+      padding: 15px 35px; /* تكبير حجم الأزرار */
+      font-size: 1.3rem;
+      border-radius: 50px; /* حواف دائرية للأزرار */
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background-color: #004d40;
+        transform: translateY(-4px); /* رفع الزر عند التحويم */
+        box-shadow: 0 10px 20px rgba(0, 77, 64, 0.4); /* إضافة ظل أكبر */
+      }
+    }
+  }
+}
+
+/* تأثيرات الحركة */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

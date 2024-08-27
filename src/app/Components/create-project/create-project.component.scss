@@ -1,0 +1,30 @@
+.container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .form-control:invalid {
+    border-color: #dc3545;
+  }
+  
+  .form-control:valid {
+    border-color: #28a745;
+  }
+  
+  .alert {
+    transition: opacity 0.5s ease;
+  }
+  
+  .btn-success {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

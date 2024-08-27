@@ -1,59 +1,60 @@
 .footer {
-    background-color: #343a40;
-    color: #fff;
-    padding: 2rem 0;
-  
-    h5 {
-      margin-bottom: 1rem;
-    }
-  
-    p {
+  background-color: #343a40;
+  color: #fff;
+  padding: 2rem 0;
+  width: 100%; /* تأكيد أن الفوتر يغطي عرض الشاشة بالكامل */
+
+  h5 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+
+    li {
       margin-bottom: 0.5rem;
-    }
-  
-    ul {
-      padding-left: 0;
-      list-style: none;
-  
-      li {
-        margin-bottom: 0.5rem;
-  
-        a {
-          color: #fff;
-          text-decoration: none;
-  
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  
-    .social-icons {
+
       a {
         color: #fff;
-        margin-right: 1rem;
-        font-size: 1.5rem;
-  
+        text-decoration: none;
+
         &:hover {
-          color: #007bff;
+          text-decoration: underline;
         }
       }
     }
-  
-    .input-group {
-      .form-control {
-        border-radius: 0;
+  }
+
+  .social-icons {
+    a {
+      color: #fff;
+      margin-right: 1rem;
+      font-size: 1.5rem;
+
+      &:hover {
+        color: #007bff;
       }
-  
-      .btn {
-        border-radius: 0;
-      }
-    }
-  
-    .row.mt-4 {
-      border-top: 1px solid #4f5d75;
-      padding-top: 1rem;
     }
   }
-  
+
+  .input-group {
+    .form-control {
+      border-radius: 0;
+    }
+
+    .btn {
+      border-radius: 0;
+    }
+  }
+
+  .row.mt-4 {
+    border-top: 1px solid #4f5d75;
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+}

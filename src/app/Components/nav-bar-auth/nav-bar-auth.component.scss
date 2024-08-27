@@ -1,39 +1,87 @@
 .navbar {
-    padding: 10px 20px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #007bff;
+  transition: padding 0.3s ease, background-color 0.3s ease;
+
+  &.scrolled {
+    background-color: rgba(255, 255, 255, 0.95); /* شفافية طفيفة */
+    padding: 10px 40px; /* زيادة الـ padding عند التمرير */
+    backdrop-filter: blur(10px); /* تأثير التمويه */
   }
-  
-  .animated-logo {
-    animation: rotate 5s linear infinite;
-    height: 50px;
-    margin-right: 10px;
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
+
   .navbar-brand {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
-  }
-  
-  .navbar-nav .nav-item {
-    margin-left: 10px;
-  }
-  
-  .navbar-nav .nav-link {
-    font-size: 1.2rem;
-    font-weight: 500;
-  }
-  
-  .navbar-nav .nav-link:hover {
     color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+
+    &:hover {
+      color: #0056b3;
+      text-shadow: 0 0 15px rgba(0, 86, 179, 0.7);
+    }
   }
-  
+
+  .navbar-nav .nav-item {
+    margin-left: 15px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    &:hover {
+      color: #007bff;
+      transform: scale(1.1); /* تكبير طفيف عند التمرير */
+    }
+
+    i {
+      font-size: 1.4rem;
+      color: #555;
+      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+      &:hover {
+        color: #007bff;
+        transform: rotate(360deg); /* تدوير الأيقونة عند التمرير */
+      }
+    }
+  }
+
+  .btn-outline-primary {
+    border: 2px solid #007bff;
+    color: #007bff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  }
+
+  .active-link {
+    color: #0056b3 !important;
+    font-weight: bold;
+    border-bottom: 2px solid #0056b3;
+  }
+
+  .navbar-toggler {
+    border: none;
+    outline: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: rotate(90deg); /* تدوير الزر عند التمرير */
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

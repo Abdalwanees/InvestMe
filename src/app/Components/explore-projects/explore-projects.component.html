@@ -1,0 +1,94 @@
+<div class="explore-projects">
+  <div *ngFor="let project of projects" class="project-card">
+    <div class="project-header">
+      <span class="user-name">{{ project.ownerName }}</span>
+      <button (click)="openChat(project.ownerId)">
+        Chat with {{ project.ownerName }}
+      </button>
+    </div>
+
+    <div class="project-status">
+      <span>Status: {{ project.status || 'N/A' }}</span>
+    </div>
+
+    <div class="project-video" *ngIf="project.videoUrl">
+      <iframe 
+        [src]="convertToEmbedUrl(project.videoUrl) | safeUrl" 
+        title="{{ project.name }}" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="project-details">
+      <h3>{{ project.name }}</h3>
+      <p>{{ project.description }}</p>
+      <p><strong>Investment Needed:</strong> ${{ project.investmentNeeded }}</p>
+      <p><strong>Number of Investors:</strong> {{ project.numberOfInvestors }}</p>
+      <p><strong>Total Interactions:</strong> {{ project.totalInteractions }}</p>
+    </div>
+
+    <div class="project-interactions">
+      <button (click)="incrementInteraction(project.id)">👍 Like</button>
+      <button (click)="decrementInteraction(project.id)">👎 Dislike</button>
+      
+      <!-- Support button shown only if user is an investor -->
+      <button *ngIf="isInvestor && !supportFormVisible[project.id]" (click)="showSupportForm(project.id)" class="support-button">
+        💸 Support Financially
+      </button>
+
+      <!-- Support form shown if supportFormVisible is true -->
+      <div *ngIf="supportFormVisible[project.id]" class="support-form">
+        <form [formGroup]="supportForms[project.id]" (ngSubmit)="submitSupport(project.id)">
+          <label for="amount">Support Amount:</label>
+          <input id="amount" formControlName="amount" type="number" min="1" required />
+          <div *ngIf="supportForms[project.id].controls['amount'].invalid && (supportForms[project.id].controls['amount'].touched || supportForms[project.id].controls['amount'].dirty)">
+            <small class="error">Amount is required and must be a number greater than 0.</small>
+          </div>
+          
+          <label for="contactMethod">Contact Method:</label>
+          <input id="contactMethod" formControlName="contactMethod" type="text" required />
+          <div *ngIf="supportForms[project.id].controls['contactMethod'].invalid && (supportForms[project.id].controls['contactMethod'].touched || supportForms[project.id].controls['contactMethod'].dirty)">
+            <small class="error">Contact method is required.</small>
+          </div>
+          
+          <button type="submit" [disabled]="supportForms[project.id].invalid">Submit Support</button>
+          <button type="button" (click)="hideSupportForm(project.id)">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="project-comments">
+      <h4>Comments:</h4>
+      <div class="comments-container">
+        <ul *ngIf="project.comments && project.comments.length">
+          <li *ngFor="let comment of project.comments" class="comment-item">
+            <div class="comment-header">
+              <strong>{{ comment.userName }}:</strong>
+              <button (click)="toggleReplyForm(comment.id)" class="reply-toggle">Reply</button>
+            </div>
+            <p>{{ comment.content }}</p>
+            
+            <div *ngIf="replyForms[comment.id]" class="reply-form">
+              <textarea [(ngModel)]="replyContent[comment.id]" placeholder="Add a reply..." rows="3"></textarea>
+              <button (click)="addReply(comment.id)" class="comment-button">Post Reply</button>
+            </div>
+    
+            <ul *ngIf="comment.replies && comment.replies.length" class="reply-list">
+              <li *ngFor="let reply of comment.replies" class="reply-item">
+                <strong>{{ reply.userName }}:</strong> {{ reply.content }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p *ngIf="!project.comments || !project.comments.length">No comments yet.</p>
+      </div>
+
+      <form [formGroup]="commentForms[project.id]" (ngSubmit)="addComment(project.id)" class="comment-form">
+        <textarea formControlName="comment" placeholder="Add a comment..." rows="3"></textarea>
+        <button type="submit" [disabled]="commentForms[project.id].invalid" class="comment-button">Post Comment</button>
+      </form>
+    </div>    
+  </div>
+</div>

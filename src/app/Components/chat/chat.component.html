@@ -1,0 +1,18 @@
+<ng-container *ngIf="messages && messages.length > 0; else noMessages">
+    <div class="messages">
+      <div *ngFor="let message of messages" class="message" [ngClass]="{ 'sent': message.senderId === currentUserId, 'received': message.senderId !== currentUserId }">
+        <p>{{ message.content }}</p>
+        <small>{{ message.sentAt | date:'short' }}</small>
+      </div>
+    </div>
+  </ng-container>
+  
+  <ng-template #noMessages>
+    <p>No messages yet. Start the conversation!</p>
+  </ng-template>
+  
+  <div class="message-input">
+    <input [(ngModel)]="newMessage" placeholder="Type your message..." (keyup.enter)="sendMessage()" />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+  

@@ -1,52 +1,79 @@
 .navbar {
-    background-color: #f8f9fa !important;
-    padding: 1rem 2rem;
-  
-    .navbar-brand {
-      display: flex;
-      align-items: center;
-      font-weight: bold;
-      color: #007bff;
-  
-      img.animated-logo {
-        width: 50px;
-        margin-right: 10px;
-        animation: rotate 5s infinite linear;
-      }
-    }
-  
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #007bff;
+  transition: padding 0.3s ease, background-color 0.3s ease;
+
+  &.scrolled {
+    background-color: rgba(255, 255, 255, 0.95); /* شفافية طفيفة */
+    padding: 10px 40px; /* زيادة الـ padding عند التمرير */
+    backdrop-filter: blur(10px); /* تأثير التمويه */
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem; /* تعديل الحجم ليتناسب مع الشاشات الصغيرة */
+    font-weight: bold;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* المسافة بين العناصر */
+    
     .nav-link {
-      margin-right: 1rem;
+      font-size: 1rem; /* حجم الخط المتجاوب */
       font-weight: 500;
-      color: #555;
-  
+      color: #333;
+      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
       &:hover {
         color: #007bff;
-      }
-  
-      &.active {
-        color: #007bff;
-        font-weight: bold;
-      }
-    }
-  
-    .navbar-toggler {
-      border: none;
-    }
-  
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-  
-    .navbar-nav {
-      .nav-item {
-        margin-left: 15px;
+        transform: scale(1.1);
       }
     }
   }
+
+  .btn-outline-primary {
+    border: 2px solid #007bff;
+    color: #007bff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  }
+}
+
+/* تحسين للعرض على الشاشات الصغيرة */
+@media (max-width: 767.98px) {
+  .navbar {
+    .navbar-brand {
+      font-size: 1.2rem; /* حجم أصغر للعلامة التجارية */
+    }
+
+    .navbar-nav {
+      gap: 10px; /* تقليل المسافة بين العناصر في الشاشات الصغيرة */
+    }
+
+    .btn-outline-primary {
+      font-size: 0.9rem; /* حجم أصغر للزر */
+    }
+  }
+    .navbar-nav .nav-link {
+      font-size: 0.9rem;
+      i {
+        font-size: 1.2rem; /* تكبير حجم الأيقونة على الشاشات الصغيرة */
+      }
+    }
   
+    .btn-outline-primary i {
+      font-size: 1.1rem;
+    }
+  
+}

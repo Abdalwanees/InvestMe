@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkInvestMe=self.webpackChunkInvestMe||[]).push([[296],{2296:(u,l,d)=>{d.d(l,{ot:()=>p});var r=d(9291),m=d(3551);let p=(()=>{class n{static#t=this.\u0275fac=function(e){return new(e||n)};static#e=this.\u0275mod=r.oAB({type:n});static#o=this.\u0275inj=r.cJS({imports:[m.BQ,m.si,m.BQ]})}return n})()}}]);

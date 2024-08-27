@@ -1,5 +1,7 @@
-import { ProjectCardComponent } from './Components/project-card/project-card.component';
-import { ProjectDetailsComponent } from './Components/project-details/project-details.component';
+import { InvestorDashboardComponent } from './Components/investor-dashboard/investor-dashboard.component';
+import { LogInComponent } from 'src/app/Components/log-in/log-in.component';
+// import { ProjectCardComponent } from './Components/project-card/project-card.component';
+// import { ProjectDetailsComponent } from './Components/project-details/project-details.component';
 import { NgModule } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -41,51 +43,41 @@ const routes: Routes = [
     path: 'blank',
     loadComponent:()=>import('./Layouts/blank-layout/blank-layout.component').then((m)=>m.BlankLayoutComponent),
     children: [
-      { path: '', redirectTo: 'projects', pathMatch: 'full' },
+      { path: '', redirectTo: 'investor', pathMatch: 'full' },
+      {
+        path: 'investor',
+        loadComponent: () => import('./Components/investor-dashboard/investor-dashboard.component').then(m => InvestorDashboardComponent),
+        title: 'Investor'
+      },
+      {
+        path: 'innovator',
+        loadComponent: () => import('./Components/innovator-dashboard/innovator-dashboard.component').then(m => m.InnovatorDashboardComponent),
+        title: 'Innovator'
+      },
+      {
+        path: 'NewProject',
+        loadComponent: () => import('./Components/create-project/create-project.component').then(m => m.CreateProjectComponent),
+        title: 'Add Project'
+      },
+      {
+        path: 'explore',
+        loadComponent: () => import('./Components/explore-projects/explore-projects.component').then(m => m.ExploreProjectsComponent),
+        title: 'Explore'
+      },
       {
         path: 'projects',
-        loadComponent: () => import('./Components/project-list/project-list.component').then(m => m.ProjectListComponent),
-        title: 'Invest Me'
+        loadComponent: () => import('./Components/innovator-projects/innovator-projects.component').then(m => m.InnovatorProjectsComponent),
+        title: 'Projects'
       },
       {
-        path: 'dashboard',
-        loadComponent: () => import('./Components/admin-dashboard/admin-dashboard.component').then(m => m.AdminDashboardComponent),
-        title: 'Admin Dashboard'
-      },
-      {
-        path: 'profile',
-        loadComponent: () => import('./Components/user-profile/user-profile.component').then(m => m.UserProfileComponent),
-        title: 'User Profile'
-      },
-      {
-        path: 'projects/new',
-        loadComponent: () => import('./Components/project-form/project-form.component').then(m => m.ProjectFormComponent),
-        title: 'New Project'
-      },
-      {
-        path: 'projects/:id',
-        loadComponent: () => import('./Components/project-details/project-details.component').then(m => m.ProjectDetailsComponent),
-        title: 'Project Details'
+        path: 'chat',
+        loadComponent: () => import('./Components/chat/chat.component').then(m => m.ChatComponent),
+        title: 'Chat'
       },
       {
         path: 'user-investments',
         loadComponent: () => import('./Components/user-investment/user-investment.component').then(m => m.UserInvestmentComponent),
         title: 'User Investment'
-      },
-      {
-        path: 'messages',
-        loadComponent: () => import('./Components/investor-message/investor-message.component').then(m => m.InvestorMessageComponent),
-        title: 'Investor Message'
-      },
-      {
-        path: 'chatbot',
-        loadComponent: () => import('./Components/chat-bot/chat-bot.component').then(m => m.ChatBotComponent),
-        title: 'Ai Helper'
-      },
-      {
-        path: 'settings',
-        loadComponent: () => import('./Components/user-settings/user-settings.component').then(m => m.UserSettingsComponent),
-        title: 'Settings'
       },
       {
         path: 'notifications',
@@ -96,11 +88,6 @@ const routes: Routes = [
         path: 'comments',
         loadComponent: () => import('./Components/comment-section/comment-section.component').then(m => m.CommentSectionComponent),
         title: 'Comments'
-      },
-      {
-        path: 'project-card',
-        loadComponent: () => import('./Components/project-card/project-card.component').then(m => m.ProjectCardComponent),
-        title: 'Project Card'
       },
       { path: '**', loadComponent: () => import('./Components/not-found/not-found.component').then(m => m.NotFoundComponent), title: 'Error 404 !' }
     
