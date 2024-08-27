@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ExploreServiceService {
-  private baseUrl = 'https://localhost:7281/api'; // Replace with your actual API URL
+  private baseUrl = 'http://investme.runasp.net/api'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) {}
 

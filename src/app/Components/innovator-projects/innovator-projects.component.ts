@@ -27,7 +27,7 @@ export class InnovatorProjectsComponent implements OnInit {
   loadProjects() {
     const innovatorId = localStorage.getItem('id');
     
-    this.http.get<any[]>(`https://localhost:7281/api/projects/${innovatorId}`).subscribe(
+    this.http.get<any[]>(`http://investme.runasp.net/api/projects/${innovatorId}`).subscribe(
       data => {
         this.projects = data;
         this.projects.forEach(project => {
@@ -66,7 +66,7 @@ export class InnovatorProjectsComponent implements OnInit {
     if (commentContent) {
       const newComment = { content: commentContent };
 
-      this.http.post(`https://localhost:7281/api/comments/${projectId}`, newComment).subscribe(
+      this.http.post(`http://investme.runasp.net/api/comments/${projectId}`, newComment).subscribe(
         () => {
           this.loadProjects();  // Reload projects to update the comments
         },
@@ -82,7 +82,7 @@ export class InnovatorProjectsComponent implements OnInit {
     if (replyContent) {
       const newReply = { content: replyContent };
 
-      this.http.post(`https://localhost:7281/api/replies/${commentId}`, newReply).subscribe(
+      this.http.post(`http://investme.runasp.net/api/replies/${commentId}`, newReply).subscribe(
         () => {
           this.loadProjects();  // Reload projects to update the replies
         },
@@ -102,7 +102,7 @@ export class InnovatorProjectsComponent implements OnInit {
       investmentNeeded: project.investmentNeeded
     };
 
-    this.http.put(`https://localhost:7281/api/projects/${project.id}`, updatedProject).subscribe(
+    this.http.put(`http://investme.runasp.net/api/projects/${project.id}`, updatedProject).subscribe(
       () => {
         this.loadProjects();  // Reload projects after successful update
       },
@@ -113,7 +113,7 @@ export class InnovatorProjectsComponent implements OnInit {
   }
 
   deleteProject(projectId: string) {
-    this.http.delete(`https://localhost:7281/api/projects/${projectId}`).subscribe(
+    this.http.delete(`http://investme.runasp.net/api/projects/${projectId}`).subscribe(
       () => {
         // Remove the deleted project from the local array
         this.projects = this.projects.filter(p => p.id !== projectId);

@@ -61,7 +61,7 @@ export class ExploreProjectsComponent implements OnInit {
   }
 
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>('https://localhost:7281/api/Projects')
+    return this.http.get<Project[]>('http://investme.runasp.net/api/Projects')
       .pipe(
         catchError(error => {
           console.error('Error fetching projects:', error);
@@ -93,7 +93,7 @@ export class ExploreProjectsComponent implements OnInit {
   incrementInteraction(projectId: number): void {
     const userId = localStorage.getItem('id');
     if (userId) {
-      this.http.post(`https://localhost:7281/api/Projects/increment/${projectId}`, Number(userId))
+      this.http.post(`http://investme.runasp.net/api/Projects/increment/${projectId}`, Number(userId))
         .pipe(
           tap(() => this.refreshProjects()),
           catchError(error => {
@@ -107,7 +107,7 @@ export class ExploreProjectsComponent implements OnInit {
   decrementInteraction(projectId: number): void {
     const userId = localStorage.getItem('id');
     if (userId) {
-      this.http.post(`https://localhost:7281/api/Projects/decrement/${projectId}`, Number(userId))
+      this.http.post(`http://investme.runasp.net/api/Projects/decrement/${projectId}`, Number(userId))
         .pipe(
           tap(() => this.refreshProjects()),
           catchError(error => {
@@ -132,7 +132,7 @@ export class ExploreProjectsComponent implements OnInit {
         userName: userName
       };
 
-      this.http.post(`https://localhost:7281/api/Projects/${projectId}/comments`, newComment)
+      this.http.post(`http://investme.runasp.net/api/Projects/${projectId}/comments`, newComment)
         .pipe(
           tap(() => this.refreshProjects()),
           catchError(error => {
@@ -159,7 +159,7 @@ export class ExploreProjectsComponent implements OnInit {
         userName: userName
       };
 
-      this.http.post(`https://localhost:7281/api/Projects/comments/${commentId}/replies`, newReply)
+      this.http.post(`http://investme.runasp.net/api/Projects/comments/${commentId}/replies`, newReply)
         .pipe(
           tap(() => this.refreshProjects()),
           catchError(error => {
@@ -200,7 +200,7 @@ export class ExploreProjectsComponent implements OnInit {
 
       console.log(supportRequest);
       
-      this.http.post(`https://localhost:7281/api/Investor/${projectId}/support`, supportRequest)
+      this.http.post(`http://investme.runasp.net/api/Investor/${projectId}/support`, supportRequest)
         .pipe(
           tap(() => this.refreshProjects()),
           catchError(error => {

@@ -45,7 +45,7 @@ export class CreateProjectComponent {
         totalInteractions: 0
       };
 
-      this.http.post('https://localhost:7281/api/projects', projectData).subscribe(
+      this.http.post('http://investme.runasp.net/api/projects', projectData).subscribe(
         (response) => {
           console.log('Project created successfully:', response);
           this.formSubmitted = true;

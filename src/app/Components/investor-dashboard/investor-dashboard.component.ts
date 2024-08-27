@@ -46,7 +46,7 @@ export class InvestorDashboardComponent implements OnInit {
 
   loadInvestmentSummary(): void {
     const investorId = localStorage.getItem('id');
-    this.http.get<any>(`https://localhost:7281/api/Investor/${investorId}/investment-summary`).subscribe({
+    this.http.get<any>(`http://investme.runasp.net/api/Investor/${investorId}/investment-summary`).subscribe({
       next: (data) => {
         this.totalInvestments = data.totalSupport;
         this.expectedReturns = data.expectedReturn;
@@ -60,7 +60,7 @@ export class InvestorDashboardComponent implements OnInit {
 
   loadInvestmentActivities(): void {
     const investorId = localStorage.getItem('id');
-    this.http.get<any>(`https://localhost:7281/api/Investor/${investorId}/activities`).subscribe({
+    this.http.get<any>(`http://investme.runasp.net/api/Investor/${investorId}/activities`).subscribe({
       next: (data) => {
         if (data && data.activities.length > 0) {
           this.activities = data.activities.map((activity: any) => {
